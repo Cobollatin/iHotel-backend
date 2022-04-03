@@ -1,1 +1,1 @@
-# iHotel
+# iHotel-backend
