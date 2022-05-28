@@ -9,35 +9,38 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
-import java.util.List;
+import java.io.Serializable;
+
+class OrdersPerProductPrimaryKey implements Serializable {
+	private Product  product;
+	private Purchase purchase;
+}
 
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @Entity
+@IdClass(OrdersPerProductPrimaryKey.class)
 @Table(name = "orders_per_product")
 public class OrdersPerProduct {
-
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "purchase_id", referencedColumnName = "id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ToString.Exclude
 	private Purchase purchase;
-
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "purchase_id", referencedColumnName = "id")
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "product_id", referencedColumnName = "id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ToString.Exclude
-	private List<Product> products;
-
+	private Product  product;
 	@Min(value = 1, message = "Quantity must be greater than 0")
 	@Column(name = "quantity", nullable = false)
-	private int quantity;
-
+	private int      quantity;
 	@Min(value = 0, message = "Discount must be greater than 0")
 	@Digits(integer = 10, fraction = 2, message = "Discount must be a number")
 	@Column(name = "discount", nullable = false)
-	private Float discount = 0f;
-
+	private Float    discount = 0f;
 }
