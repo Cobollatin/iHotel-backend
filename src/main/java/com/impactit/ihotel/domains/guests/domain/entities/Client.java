@@ -1,7 +1,5 @@
-package com.impactit.ihotel.domains.guests.entities;
+package com.impactit.ihotel.domains.guests.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.impactit.ihotel.domains.reservations.entities.Reservation;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -18,41 +16,43 @@ import java.util.Date;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "client_guests")
-public class ClientGuest {
+@Table(name = "clients")
+public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String      id;
+	private String id;
+
 	@NotEmpty(message = "Name cannot be empty")
 	@Size(min = 2, max = 64, message = "Name must have between 2 and 64 characters")
 	@Column(name = "name", nullable = false, length = 64)
-	private String      name;
+	private String name;
+
 	@NotEmpty(message = "Surname cannot be empty")
 	@Size(min = 2, max = 64, message = "Surname must have between 2 and 64 characters")
 	@Column(name = "surname", nullable = false, length = 64)
-	private String      surname;
+	private String surname;
+
 	@NotEmpty(message = "Email cannot be empty")
 	@Email(message = "Invalid email.")
-	@Column(name = "email", nullable = true, unique = true)
-	private String      email;
+	@Column(name = "email", nullable = false, unique = true)
+	private String email;
+
 	@NotEmpty(message = "Phone cannot be empty")
 	@Size(min = 9, max = 9, message = "Phone must have 9 characters")
 	@Column(name = "phone_number", nullable = true, length = 9)
-	private String      phoneNumber;
+	private String phoneNumber;
+
 	@NotEmpty(message = "Address cannot be empty")
 	@Size(min = 2, max = 128, message = "Address must have between 2 and 128 characters")
 	@Column(name = "address", nullable = true, length = 128)
-	private String      address;
+	private String address;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "born_date", nullable = true)
-	private Date        bornDate;
+	private Date   bornDate;
+
 	@NotEmpty(message = "DNI cannot be empty")
 	@Size(min = 8, max = 8, message = "DNI must have 8 characters")
 	@Column(name = "dni", nullable = true, unique = true, length = 8)
-	private String      dni;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "reservation_id")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	@ToString.Exclude
-	private Reservation reservation;
+	private String dni;
 }

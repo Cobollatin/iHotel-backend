@@ -1,15 +1,13 @@
 package com.impactit.ihotel.domains.reservations.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.impactit.ihotel.domains.guests.entities.Client;
+import com.impactit.ihotel.domains.guests.domain.entities.Client;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.Objects;
 
 @Getter
 @Setter

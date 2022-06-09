@@ -1,4 +1,4 @@
-package com.impactit.ihotel.domains.administration.controllers;
+package com.impactit.ihotel.domains.administration.services.controllers;
 
 import com.impactit.ihotel.domains.administration.services.AdministratorService;
 import lombok.extern.slf4j.Slf4j;
