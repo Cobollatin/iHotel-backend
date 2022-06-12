@@ -1,7 +1,7 @@
 package com.impactit.ihotel.domains.reservations.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.impactit.ihotel.domains.stores.entities.Purchase;
+import com.impactit.ihotel.domains.stores.domain.entities.Purchase;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

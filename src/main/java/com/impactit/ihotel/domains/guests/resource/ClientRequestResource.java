@@ -11,21 +11,16 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class ClientRequestResource {
 
-    @Size(max = 64)
     private String name;
 
-    @Size(max = 64)
     private String surname;
 
     private String email;
 
-    @Size(max = 9)
     private String phoneNumber;
 
-    @Size(max = 128)
     private String address;
 
-    @Size(max = 8)
     private String dni;
 
 }

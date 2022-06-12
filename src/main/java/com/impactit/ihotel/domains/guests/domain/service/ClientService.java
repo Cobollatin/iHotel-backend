@@ -12,10 +12,6 @@ import java.util.List;
 public interface ClientService {
     List<Client> getAll();
 
-    Page<Client> getAll(Pageable pageable);
-
-    Client getById(Long StudentId);
-
     Client create(Client client);
 
     Client update(Long studentId, Client request);
