@@ -1,8 +1,8 @@
 package com.impactit.ihotel.domains.hotels.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.impactit.ihotel.domains.administration.entities.Administrator;
-import com.impactit.ihotel.domains.administration.entities.Business;
+import com.impactit.ihotel.domains.administration.domain.entities.Administrator;
+import com.impactit.ihotel.domains.administration.domain.entities.Business;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

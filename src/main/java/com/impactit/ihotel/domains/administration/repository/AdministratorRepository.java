@@ -1,6 +1,7 @@
 package com.impactit.ihotel.domains.administration.repository;
 
-import com.impactit.ihotel.domains.administration.entities.Administrator;
+import com.impactit.ihotel.domains.administration.domain.entities.Administrator;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
