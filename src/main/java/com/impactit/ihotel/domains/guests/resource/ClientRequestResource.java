@@ -2,9 +2,6 @@ package com.impactit.ihotel.domains.guests.resource;
 
 import lombok.*;
 
-import java.util.Date;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Getter
@@ -12,30 +9,21 @@ import javax.validation.constraints.Size;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateClientResource {
+public class ClientRequestResource {
 
-    @NotNull
-    @NotBlank
-    @Size(max = 100)
+    @Size(max = 64)
     private String name;
 
-    @NotNull
-    @NotBlank
-    @Size(max = 100)
+    @Size(max = 64)
     private String surname;
 
-    @NotNull
-    @NotBlank
-    @Size(max = 100)
     private String email;
 
     @Size(max = 9)
     private String phoneNumber;
 
-    @Size(max = 100)
+    @Size(max = 128)
     private String address;
-
-    private Date bornDate;
 
     @Size(max = 8)
     private String dni;

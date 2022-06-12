@@ -1,26 +1,24 @@
 package com.impactit.ihotel.domains.guests.domain.entities;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.util.Date;
+import javax.validation.constraints.*;
+
 
 @Getter
 @Setter
+@With
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "clients")
 public class Client {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	@NotEmpty(message = "Name cannot be empty")
 	@Size(min = 2, max = 64, message = "Name must have between 2 and 64 characters")
@@ -46,10 +44,6 @@ public class Client {
 	@Size(min = 2, max = 128, message = "Address must have between 2 and 128 characters")
 	@Column(name = "address", nullable = true, length = 128)
 	private String address;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "born_date", nullable = true)
-	private Date   bornDate;
 
 	@NotEmpty(message = "DNI cannot be empty")
 	@Size(min = 8, max = 8, message = "DNI must have 8 characters")
