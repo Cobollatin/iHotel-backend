@@ -1,20 +1,20 @@
 package com.impactit.ihotel.domains.administration.domain.entities;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import javax.xml.transform.Source;
 import java.util.Date;
 
 @Getter
 @Setter
+@With
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "administrators")
 public class Administrator {
@@ -52,4 +52,5 @@ public class Administrator {
     @Size(min = 2, max = 128, message = "Address must have between 2 and 128 characters")
     @Column(name = "address", nullable = true, length = 128)
     private String address;
+
 }

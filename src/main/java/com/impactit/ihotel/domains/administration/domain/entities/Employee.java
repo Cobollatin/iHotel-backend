@@ -1,7 +1,7 @@
 package com.impactit.ihotel.domains.administration.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.impactit.ihotel.domains.hotels.entities.Hotel;
+import com.impactit.ihotel.domains.hotels.domain.entities.Hotel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -72,6 +72,6 @@ public class Employee {
     @JoinColumn(name = "hotel_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ToString.Exclude
-    private Hotel    hotel;
+    private Hotel hotel;
 }
 
