@@ -1,4 +1,4 @@
-package com.impactit.ihotel.domains.reservations.entities;
+package com.impactit.ihotel.domains.reservations.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.impactit.ihotel.domains.guests.domain.entities.Client;
@@ -11,20 +11,22 @@ import java.util.Date;
 
 @Getter
 @Setter
+@With
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "reservations")
 public class Reservation {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ToString.Exclude
-	private Client client;
+	private Client clientId;
 
 	@NotEmpty(message = "Status cannot be empty")
 	@Size(min = 2, max = 64, message = "Status must be between 2 and 64 characters")
@@ -36,6 +38,6 @@ public class Reservation {
 	private Date reservationDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "check_in_Date", nullable = true)
+	@Column(name = "check_in_Date", nullable = false)
 	private Date checkInDate;
 }
