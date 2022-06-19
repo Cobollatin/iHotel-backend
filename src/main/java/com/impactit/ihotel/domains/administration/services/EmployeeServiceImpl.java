@@ -17,7 +17,7 @@ import java.util.Set;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private static final String ENTITY = "administrators";
+    private static final String ENTITY = "employees";
 
     @Autowired
     private final EmployeeRepository employeeRepository;

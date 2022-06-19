@@ -16,7 +16,7 @@ import java.util.Set;
 
 @Service
 public class BusinessServiceImpl implements BusinessService {
-    private static final String ENTITY = "administrators";
+    private static final String ENTITY = "businesses";
 
     @Autowired
     private final BusinessRepository businessRepository;
