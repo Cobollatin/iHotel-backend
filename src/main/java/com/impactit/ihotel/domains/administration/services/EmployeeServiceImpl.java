@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee create(Employee employee) {
-        Set<ConstraintViolation<Employee>> violations = this.validator.validate(employee);
+        Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
         return employeeRepository.save(employee);
