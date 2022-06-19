@@ -11,7 +11,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/employees")
+@RequestMapping(value = "/employees")
 public class EmployeeController {
     @Autowired
     private EmployeeServiceImpl employeeService;

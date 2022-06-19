@@ -1,10 +1,9 @@
 package com.impactit.ihotel.domains.hotels.services;
 
 
-import com.impactit.ihotel.domains.administration.repository.AdministratorRepository;
 import com.impactit.ihotel.domains.hotels.domain.entities.Hotel;
+import com.impactit.ihotel.domains.hotels.domain.persistence.HotelRepository;
 import com.impactit.ihotel.domains.hotels.domain.service.HotelService;
-import com.impactit.ihotel.domains.hotels.repository.HotelRepository;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceNotFoundException;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import java.util.Set;
 @Service
 public class HotelServiceImpl implements HotelService {
 
-	private static final String ENTITY = "administrators";
+	private static final String ENTITY = "hotels";
 
 	@Autowired
 	private final HotelRepository hotelRepository;
