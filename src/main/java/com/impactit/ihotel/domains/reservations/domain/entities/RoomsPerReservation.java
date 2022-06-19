@@ -1,4 +1,4 @@
-package com.impactit.ihotel.domains.reservations.entities;
+package com.impactit.ihotel.domains.reservations.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.impactit.ihotel.domains.hotels.entities.Room;
