@@ -8,4 +8,6 @@ public class MappingConfiguration {
     @Bean
     public ProductMapper productMapper(){ return new ProductMapper(); }
 
+    @Bean
+    public PurchaseMapper purchaseMapper(){ return new PurchaseMapper(); }
 }
