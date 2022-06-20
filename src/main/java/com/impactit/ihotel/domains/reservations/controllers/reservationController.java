@@ -4,13 +4,14 @@ import com.impactit.ihotel.domains.reservations.domain.service.ReservationServic
 import com.impactit.ihotel.domains.reservations.mapping.ReservationMapper;
 import com.impactit.ihotel.domains.reservations.resource.ReservationRequestResource;
 import com.impactit.ihotel.domains.reservations.resource.ReservationResource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@Slf4j
 @RestController
 @RequestMapping(value = "/reservations")
 public class reservationController {
@@ -30,9 +31,10 @@ public class reservationController {
         return mapper.modelListPage(reservationService.getAll(), pageable);
     }
 
-    @PostMapping
+    @PostMapping("/create")
+
     public ResponseEntity<ReservationResource> createReservation (@RequestBody ReservationRequestResource resource) {
-        return new ResponseEntity<>(mapper.toResource(reservationService.create(
+        return new ResponseEntity<ReservationResource>(mapper.toResource(reservationService.create(
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
 
