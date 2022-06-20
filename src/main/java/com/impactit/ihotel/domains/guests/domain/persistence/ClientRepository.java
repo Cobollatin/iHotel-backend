@@ -13,4 +13,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     Client findByName(String Name); //Select * from tabla Where name = ?
 
+    Client findAllById(Long id);
 }

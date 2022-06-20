@@ -1,8 +1,8 @@
 package com.impactit.ihotel.domains.hotels.mapping;
 
-import com.impactit.ihotel.domains.administration.resources.RoomResource;
-import com.impactit.ihotel.domains.administration.resources.SaveRoomResource;
 import com.impactit.ihotel.domains.hotels.domain.entities.Room;
+import com.impactit.ihotel.domains.hotels.resources.RoomResource;
+import com.impactit.ihotel.domains.hotels.resources.SaveRoomResource;
 import com.impactit.ihotel.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

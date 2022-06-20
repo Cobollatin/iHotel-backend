@@ -1,21 +1,25 @@
 package com.impactit.ihotel.domains.hotels.controllers;
 
+
 import com.impactit.ihotel.domains.hotels.domain.entities.Hotel;
-import com.impactit.ihotel.domains.hotels.services.HotelServiceImpl;
-import lombok.extern.slf4j.Slf4j;
+import com.impactit.ihotel.domains.hotels.domain.service.HotelService;
+import com.impactit.ihotel.domains.hotels.mapping.HotelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
 @RestController
-@RequestMapping("/hotels")
+@RequestMapping(value = "/hotels")
 public class HotelController {
 	@Autowired
-	private HotelServiceImpl hotelService;
+	private final HotelService hotelService;
 
-	public HotelController() {}
+	private final HotelMapper mapper;
+	public HotelController(HotelService hotelService, HotelMapper mapper) {
+		this.hotelService = hotelService;
+		this.mapper = mapper;
+	}
 
 	@GetMapping
 	public List<Hotel> getAll() {

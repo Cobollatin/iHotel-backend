@@ -1,8 +1,8 @@
 package com.impactit.ihotel.domains.administration.services;
 
 import com.impactit.ihotel.domains.administration.domain.entities.Administrator;
+import com.impactit.ihotel.domains.administration.domain.persistence.AdministratorRepository;
 import com.impactit.ihotel.domains.administration.domain.service.AdministratorService;
-import com.impactit.ihotel.domains.administration.repository.AdministratorRepository;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceNotFoundException;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceValidationException;
 import org.springframework.beans.factory.annotation.Autowired;

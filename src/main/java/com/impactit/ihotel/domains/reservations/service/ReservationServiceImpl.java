@@ -1,10 +1,13 @@
 package com.impactit.ihotel.domains.reservations.service;
 
+import com.impactit.ihotel.domains.guests.domain.entities.Client;
+import com.impactit.ihotel.domains.guests.domain.persistence.ClientRepository;
 import com.impactit.ihotel.domains.reservations.domain.entities.Reservation;
 import com.impactit.ihotel.domains.reservations.domain.persistence.ReservationRepository;
 import com.impactit.ihotel.domains.reservations.domain.service.ReservationService;
 import com.impactit.ihotel.shared.exception.ResourceNotFoundException;
 import com.impactit.ihotel.shared.exception.ResourceValidationException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,16 +18,18 @@ import java.util.List;
 import java.util.Set;
 
 @Service
+@Slf4j
 public class ReservationServiceImpl implements ReservationService {
     private static final String ENTITY = "reservations";
 
     @Autowired
     private final ReservationRepository reservationRepository;
-
+    private final ClientRepository clientRepository;
     private final Validator validator;
 
-    public ReservationServiceImpl(ReservationRepository reservationRepository, Validator validator) {
+    public ReservationServiceImpl(ReservationRepository reservationRepository, ClientRepository clientRepository, Validator validator) {
         this.reservationRepository = reservationRepository;
+        this.clientRepository = clientRepository;
         this.validator = validator;
     }
 
@@ -35,11 +40,13 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Reservation create(Reservation reservation) {
+        Client client = clientRepository.findAllById(reservation.getClientId().getId());
+        if (client == null)throw new ResourceValidationException("Client not found");
+        reservation.setClientId(client);
         Set<ConstraintViolation<Reservation>> violations = validator.validate(reservation);
-
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
-
+        log.info(reservation.toString());
         return reservationRepository.save(reservation);
     }
 
