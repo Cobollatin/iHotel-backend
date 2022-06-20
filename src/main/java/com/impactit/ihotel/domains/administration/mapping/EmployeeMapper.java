@@ -3,6 +3,7 @@ package com.impactit.ihotel.domains.administration.mapping;
 import com.impactit.ihotel.domains.administration.domain.entities.Employee;
 import com.impactit.ihotel.domains.administration.resources.EmployeeResource;
 import com.impactit.ihotel.domains.administration.resources.SaveEmployeeResource;
+import com.impactit.ihotel.domains.administration.resources.UpdateEmployeeResource;
 import com.impactit.ihotel.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +26,10 @@ public class EmployeeMapper implements Serializable {
     }
 
     public Employee toModel(SaveEmployeeResource resource) {
+        return mapper.map(resource, Employee.class);
+    }
+
+    public Employee toModel(UpdateEmployeeResource resource) {
         return mapper.map(resource, Employee.class);
     }
 }

@@ -2,10 +2,7 @@ package com.impactit.ihotel.domains.administration.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.impactit.ihotel.domains.hotels.domain.entities.Hotel;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -17,13 +14,15 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@With
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String   id;
+    private Long  id;
 
     @NotEmpty(message = "Name cannot be empty")
     @Size(min = 2, max = 64, message = "Name must be between 2 and 64 characters")

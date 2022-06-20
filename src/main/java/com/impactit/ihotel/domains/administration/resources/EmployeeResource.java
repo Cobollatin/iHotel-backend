@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeResource {
-    private String   id;
+    private Long   id;
     private String   name;
     private String dni;
     private String   phoneNumber;

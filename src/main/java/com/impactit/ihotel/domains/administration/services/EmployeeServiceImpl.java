@@ -3,6 +3,7 @@ package com.impactit.ihotel.domains.administration.services;
 import com.impactit.ihotel.domains.administration.domain.entities.Employee;
 import com.impactit.ihotel.domains.administration.domain.persistence.EmployeeRepository;
 import com.impactit.ihotel.domains.administration.domain.service.EmployeeService;
+import com.impactit.ihotel.domains.guests.domain.entities.Client;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceNotFoundException;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee update(Long businessId, Employee request) {
-        return new Employee();
+    public Employee update(Long employeeId, Employee request) {
+        Set<ConstraintViolation<Employee>> violations = validator.validate(request);
+        if(!violations.isEmpty())
+            throw  new com.impactit.ihotel.shared.exception.ResourceValidationException(ENTITY, violations);
+
+        return employeeRepository.findById(employeeId).map(employee->
+                        employeeRepository.save(employee.withName(request.getName())
+                                .withDni(request.getDni())
+                                .withPhoneNumber(request.getPhoneNumber())
+                                .withType(request.getType())
+                                .withPhoneNumber(request.getPhoneNumber())
+                                .withDni(request.getDni())))
+                .orElseThrow(()->new com.impactit.ihotel.shared.exception.ResourceNotFoundException(ENTITY, employeeId));
     }
 
     @Override

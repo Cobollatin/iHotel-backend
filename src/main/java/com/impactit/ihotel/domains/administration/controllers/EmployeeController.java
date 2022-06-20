@@ -6,6 +6,7 @@ import com.impactit.ihotel.domains.administration.mapping.EmployeeMapper;
 import com.impactit.ihotel.domains.administration.resources.EmployeeResource;
 import com.impactit.ihotel.domains.administration.resources.SaveEmployeeResource;
 
+import com.impactit.ihotel.domains.administration.resources.UpdateEmployeeResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,14 +32,21 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
-    @GetMapping("/{id}")
-    public Employee getById(@PathVariable Long id) {
-        return employeeService.getById(id);
-    }
-
     @PostMapping
     public ResponseEntity<EmployeeResource> createEmployee(@RequestBody SaveEmployeeResource resource) {
         return new ResponseEntity<>(mapper.toResource(employeeService.create(
                 mapper.toModel(resource))) , HttpStatus.CREATED);
     }
+
+    @PutMapping("{employeeId}")
+    public EmployeeResource updateEmployee(@PathVariable Long employeeId, @RequestBody UpdateEmployeeResource resource) {
+        return mapper.toResource(employeeService.update(employeeId, mapper.toModel(resource)));
+    }
+
+    @DeleteMapping("{employeeId}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable Long employeeId) {
+        return employeeService.delete(employeeId);
+    }
+
+
 }
