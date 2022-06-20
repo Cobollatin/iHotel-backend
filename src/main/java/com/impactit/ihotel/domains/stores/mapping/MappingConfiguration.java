@@ -10,4 +10,8 @@ public class MappingConfiguration {
 
     @Bean
     public PurchaseMapper purchaseMapper(){ return new PurchaseMapper(); }
+
+    @Bean
+    public BenefitMapper benefitMapper(){return new BenefitMapper(); }
+
 }

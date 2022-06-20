@@ -3,7 +3,7 @@ package com.impactit.ihotel.domains.administration.services;
 import com.impactit.ihotel.domains.administration.domain.entities.Employee;
 import com.impactit.ihotel.domains.administration.domain.persistence.EmployeeRepository;
 import com.impactit.ihotel.domains.administration.domain.service.EmployeeService;
-import com.impactit.ihotel.domains.guests.domain.entities.Client;
+
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceNotFoundException;
 import com.impactit.ihotel.shared.mapping.exceptions.ResourceValidationException;
 import org.springframework.beans.factory.annotation.Autowired;

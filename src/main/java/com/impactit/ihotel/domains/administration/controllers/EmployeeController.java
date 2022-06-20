@@ -27,22 +27,26 @@ public class EmployeeController {
         this.mapper = mapper;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Employee> getAll() {
         return employeeService.getAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public ResponseEntity<EmployeeResource> createEmployee(@RequestBody SaveEmployeeResource resource) {
         return new ResponseEntity<>(mapper.toResource(employeeService.create(
                 mapper.toModel(resource))) , HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("{employeeId}")
     public EmployeeResource updateEmployee(@PathVariable Long employeeId, @RequestBody UpdateEmployeeResource resource) {
         return mapper.toResource(employeeService.update(employeeId, mapper.toModel(resource)));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("{employeeId}")
     public ResponseEntity<?> deleteEmployee(@PathVariable Long employeeId) {
         return employeeService.delete(employeeId);

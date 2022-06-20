@@ -7,10 +7,9 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductResource {
+public class BenefitResource {
 
     private Long id;
     private String name;
-    private String type;
     private Float price;
 }
