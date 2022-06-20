@@ -1,5 +1,6 @@
 package com.impactit.ihotel.domains.stores.controllers;
 
+import com.impactit.ihotel.domains.stores.domain.entities.Product;
 import com.impactit.ihotel.domains.stores.domain.service.ProductService;
 import com.impactit.ihotel.domains.stores.mapping.ProductMapper;
 import com.impactit.ihotel.domains.stores.resource.ProductRequestResource;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/products")
@@ -27,22 +30,26 @@ public class productController {
         this.mapper = mapper;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
-    public Page<ProductResource> getAllProduct(Pageable pageable){
-        return mapper.modelListPage(productService.getAll(), pageable);
+    public List<Product> getAllProduct(){
+        return productService.getAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public ResponseEntity<ProductResource> createProduct (@RequestBody ProductRequestResource resource) {
         return new ResponseEntity<>(mapper.toResource(productService.create(
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("{productId}")
     public ProductResource updateProduct( @PathVariable Long productId,@RequestBody ProductRequestResource resource){
         return mapper.toResource(productService.update(productId, mapper.toModel(resource)));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long productId) {
         return productService.delete(productId);

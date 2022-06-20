@@ -10,6 +10,6 @@ import lombok.*;
 public class ProductRequestResource {
 
     private String name;
-    private String type;
+    private String brandName;
     private Float price;
 }

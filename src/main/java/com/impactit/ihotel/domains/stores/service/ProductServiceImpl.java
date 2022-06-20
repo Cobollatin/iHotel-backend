@@ -55,7 +55,7 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findById(productId).map(product ->
                 productRepository.save(product.withName(request.getName())
                         .withPrice(request.getPrice())
-                        .withType(request.getType())))
+                        .withBrandName(request.getBrandName())))
                 .orElseThrow(()->new ResourceNotFoundException(ENTITY, productId));
     }
 

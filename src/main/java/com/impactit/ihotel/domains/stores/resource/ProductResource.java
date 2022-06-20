@@ -11,6 +11,6 @@ public class ProductResource {
 
     private Long id;
     private String name;
-    private String type;
+    private String brandName;
     private Float price;
 }
