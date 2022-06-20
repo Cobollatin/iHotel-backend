@@ -13,4 +13,5 @@ public interface ReservationRepository extends JpaRepository<Reservation,Long>{
     List<Reservation> findAll();
     Reservation findByStatus(String status);
     Reservation findByReservationDate(Date date);
+    Reservation findAllById(Long id);
 }

@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReservationResource {
-    private Client clientId;
+    //private Client clientId;
     private String status;
     private Date reservationDate ;
     private Date checkInDate;

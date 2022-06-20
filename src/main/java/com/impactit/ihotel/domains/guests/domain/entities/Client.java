@@ -1,7 +1,10 @@
 package com.impactit.ihotel.domains.guests.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.impactit.ihotel.domains.guests.domain.service.ClientService;
 import lombok.*;
 import org.hibernate.annotations.Type;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -49,4 +52,9 @@ public class Client {
 	@Size(min = 8, max = 8, message = "DNI must have 8 characters")
 	@Column(name = "dni", nullable = true, unique = true, length = 8)
 	private String dni;
+
+	public Client(Long id){
+		this.id = id;
+
+	}
 }
