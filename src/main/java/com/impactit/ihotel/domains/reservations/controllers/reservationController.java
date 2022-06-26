@@ -38,12 +38,12 @@ public class reservationController {
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
 
-    @PutMapping("{reservationId}")
+    @PutMapping("/{reservationId}")
     public ReservationResource updateReservation( @PathVariable Long reservationId, @RequestBody ReservationRequestResource resource){
         return mapper.toResource(reservationService.update(reservationId, mapper.toModel(resource)));
     }
 
-    @DeleteMapping("{reservationId}")
+    @DeleteMapping("/{reservationId}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long reservationId) {
         return reservationService.delete(reservationId);
     }
