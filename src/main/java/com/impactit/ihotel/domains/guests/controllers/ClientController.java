@@ -26,23 +26,23 @@ public class ClientController {
         this.clientService = clientService;
         this.mapper = mapper;
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping
     public Page<ClientResource> getAllGuest(Pageable pageable){
         return mapper.modelListPage(clientService.getAll(), pageable);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<ClientResource> createClient(@RequestBody ClientRequestResource resource) {
         return new ResponseEntity<>(mapper.toResource(clientService.create(
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @PutMapping("{clientId}")
     public ClientResource updateClientP( @PathVariable Long clientId,@RequestBody ClientRequestResource resource){
         return mapper.toResource(clientService.update(clientId, mapper.toModel(resource)));
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("{clientId}")
     public ResponseEntity<?> deleteClient(@PathVariable Long clientId) {
         return clientService.delete(clientId);

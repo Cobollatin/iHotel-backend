@@ -8,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClientResource {
-
     private Long id;
     private String name;
     private String surname;

@@ -52,5 +52,4 @@ public class Administrator {
     @Size(min = 2, max = 128, message = "Address must have between 2 and 128 characters")
     @Column(name = "address", nullable = true, length = 128)
     private String address;
-
 }
