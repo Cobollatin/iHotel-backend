@@ -40,8 +40,6 @@ public class HotelController {
 
 	@PostMapping
 	public ResponseEntity<HotelResource> create(@RequestBody SaveHotelResource resource) {
-
-
 		return new ResponseEntity<HotelResource>(
 				this.mapper.toResource(
 						this.hotelService.create(
@@ -50,6 +48,11 @@ public class HotelController {
 				),
 				HttpStatus.CREATED
 		);
+	}
+
+	@DeleteMapping("/{hotelId}")
+	public ResponseEntity<?> eraseHotel(@PathVariable Long hotelId) {
+		return this.hotelService.delete(hotelId);
 	}
 
 }

@@ -15,27 +15,9 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class RoomResource {
     private Long id;
-
-    @NotNull
-    @NotBlank
-    @Size(max = 9)
     private String  number;
-
-    @NotNull
-    @NotBlank
     private Integer capacity;
-
-    @NotNull
-    @NotBlank
-    @Size(max = 50)
     private String  type;
-
-    @NotNull
-    @NotBlank
-    @Size(max = 50)
     private String  status;
-
-    @NotNull
-    @NotBlank
     private Long hotelId;
 }

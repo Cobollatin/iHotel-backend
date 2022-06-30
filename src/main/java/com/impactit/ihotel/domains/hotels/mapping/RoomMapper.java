@@ -4,6 +4,7 @@ import com.impactit.ihotel.domains.hotels.domain.entities.Room;
 import com.impactit.ihotel.domains.hotels.resources.RoomResource;
 import com.impactit.ihotel.domains.hotels.resources.SaveRoomResource;
 import com.impactit.ihotel.shared.mapping.EnhancedModelMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.util.List;
 
+@Slf4j
 public class RoomMapper implements Serializable {
     @Autowired
     EnhancedModelMapper mapper;

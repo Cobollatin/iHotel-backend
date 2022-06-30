@@ -40,4 +40,8 @@ public class Hotel {
     @ToString.Exclude
     private Administrator administratorId;
 
+    public Hotel(Long id) {
+        this.id = id;
+    }
+
 }
