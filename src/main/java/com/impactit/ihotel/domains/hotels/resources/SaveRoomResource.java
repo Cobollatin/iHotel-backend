@@ -30,5 +30,5 @@ public class SaveRoomResource {
 
     @NotNull
     @NotBlank
-    private Hotel hotelId;
+    private Long hotelId;
 }

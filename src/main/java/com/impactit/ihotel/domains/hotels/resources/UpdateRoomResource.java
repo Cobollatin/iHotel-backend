@@ -30,7 +30,4 @@ public class UpdateRoomResource {
     @Size(max = 50)
     private String  status;
 
-    @NotNull
-    @NotBlank
-    private Hotel hotel;
 }

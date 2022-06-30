@@ -26,12 +26,4 @@ public class UpdateHotelResource {
     @NotBlank
     @Size
     private String address;
-
-    @NotNull
-    @NotBlank
-    private Business business;
-
-    @NotNull
-    @NotBlank
-    private Administrator administrator;
 }

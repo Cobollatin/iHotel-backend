@@ -2,6 +2,7 @@ package com.impactit.ihotel.domains.hotels.resources;
 
 import com.impactit.ihotel.domains.administration.domain.entities.Administrator;
 import com.impactit.ihotel.domains.administration.domain.entities.Business;
+import com.impactit.ihotel.domains.hotels.domain.entities.Hotel;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
