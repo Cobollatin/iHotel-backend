@@ -16,21 +16,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaveHotelResource {
-    @NotNull
-    @NotBlank
-    @Size(max = 100)
+    private Business businessId;
+    private Administrator administratorId;
     private String name;
-
-    @NotNull
-    @NotBlank
-    @Size
     private String address;
-
-    @NotNull
-    @NotBlank
-    private Business business;
-
-    @NotNull
-    @NotBlank
-    private Administrator administrator;
 }

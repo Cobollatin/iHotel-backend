@@ -28,7 +28,7 @@ public class RoomController {
     }
 
     @PostMapping
-    public Room create(@PathVariable Room room) {
+    public Room create(@RequestBody Room room) {
         return roomService.create(room);
     }
 }

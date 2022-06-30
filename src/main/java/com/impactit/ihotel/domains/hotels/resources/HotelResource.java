@@ -19,14 +19,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HotelResource {
-
     private Long   id;
 
     private String name;
 
     private String address;
-
-    private Business business;
-
-    private Administrator administrator;
 }

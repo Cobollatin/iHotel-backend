@@ -28,7 +28,7 @@ public class BusinessController {
     }
 
     @PostMapping
-    public Business create(@PathVariable Business business) {
+    public Business create(@RequestBody Business business) {
         return businessService.create(business);
     }
 

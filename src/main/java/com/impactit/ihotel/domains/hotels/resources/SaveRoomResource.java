@@ -12,7 +12,7 @@ public class SaveRoomResource {
     @NotNull
     @NotBlank
     @Size(max = 9)
-    private String  number;
+    private Long  number;
 
     @NotNull
     @NotBlank
@@ -30,5 +30,5 @@ public class SaveRoomResource {
 
     @NotNull
     @NotBlank
-    private Hotel hotel;
+    private Hotel hotelId;
 }
