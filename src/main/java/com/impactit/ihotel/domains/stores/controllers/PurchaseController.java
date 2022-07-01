@@ -35,7 +35,6 @@ public class PurchaseController {
         return new ResponseEntity<>(mapper.toResource(purchaseService.create(
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
-
     @PutMapping("{purchaseId}")
     public PurchaseResource updatePurchase( @PathVariable Long purchaseId,@RequestBody PurchaseRequestResource resource){
         return mapper.toResource(purchaseService.update(purchaseId, mapper.toModel(resource)));

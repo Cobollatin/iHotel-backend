@@ -30,26 +30,22 @@ public class productController {
         this.mapper = mapper;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Product> getAllProduct(){
         return productService.getAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public ResponseEntity<ProductResource> createProduct (@RequestBody ProductRequestResource resource) {
         return new ResponseEntity<>(mapper.toResource(productService.create(
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("{productId}")
     public ProductResource updateProduct( @PathVariable Long productId,@RequestBody ProductRequestResource resource){
         return mapper.toResource(productService.update(productId, mapper.toModel(resource)));
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long productId) {
         return productService.delete(productId);

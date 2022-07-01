@@ -29,26 +29,22 @@ public class BenefitController {
         this.mapper = mapper;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Benefit> getAllBenefits(Pageable pageable) {
         return benefitService.getAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public ResponseEntity<BenefitResource> createBenefit(@RequestBody BenefitRequestResource resource) {
         return new ResponseEntity<>(mapper.toResource(benefitService.create(
                 mapper.toModel(resource))), HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("{benefitId}")
     public BenefitResource updateBenefit(@PathVariable Long benefitId, @RequestBody BenefitRequestResource resource) {
         return  mapper.toResource(benefitService.update(benefitId, mapper.toModel(resource)));
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("{benefitId}")
     public ResponseEntity<?> deleteBenefit (@PathVariable Long benefitId) {
         return benefitService.delete(benefitId);
