@@ -28,7 +28,7 @@ public class AdministratorController {
     }
 
     @PostMapping
-    public Administrator create(@PathVariable Administrator administrator) {
+    public Administrator create(@RequestBody Administrator administrator) {
         return administratorService.create(administrator);
     }
 }

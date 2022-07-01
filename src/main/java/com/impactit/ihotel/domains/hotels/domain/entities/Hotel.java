@@ -29,15 +29,19 @@ public class Hotel {
     @Size(min = 2, max = 128, message = "Address must have between 2 and 128 characters")
     @Column(name = "address", nullable = true, length = 128)
     private String address;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "business_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ToString.Exclude
-    private Business business;
-    @OneToOne(cascade = CascadeType.ALL)
+    private Business businessId;
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "administrator_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ToString.Exclude
-    private Administrator administrator;
+    private Administrator administratorId;
+
+    public Hotel(Long id) {
+        this.id = id;
+    }
 
 }

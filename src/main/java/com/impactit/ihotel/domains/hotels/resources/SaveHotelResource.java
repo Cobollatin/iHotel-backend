@@ -2,6 +2,7 @@ package com.impactit.ihotel.domains.hotels.resources;
 
 import com.impactit.ihotel.domains.administration.domain.entities.Administrator;
 import com.impactit.ihotel.domains.administration.domain.entities.Business;
+import com.impactit.ihotel.domains.hotels.domain.entities.Hotel;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
@@ -16,21 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaveHotelResource {
-    @NotNull
-    @NotBlank
-    @Size(max = 100)
+    private Business businessId;
+    private Administrator administratorId;
     private String name;
-
-    @NotNull
-    @NotBlank
-    @Size
     private String address;
-
-    @NotNull
-    @NotBlank
-    private Business business;
-
-    @NotNull
-    @NotBlank
-    private Administrator administrator;
 }

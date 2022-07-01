@@ -19,7 +19,7 @@ import java.util.Date;
 @Table(name = "administrators")
 public class Administrator {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long   id;
     @NotEmpty(message = "Nickname cannot be empty")
     @Size(min = 4, max = 20, message = "Nickname must have between 4 and 20 characters")
@@ -30,7 +30,7 @@ public class Administrator {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     @NotEmpty(message = "Password hash cannot be empty")
-    @Size(min = 128, max = 128, message = "Invalid password hash")
+    @Size(min = 10, max = 128, message = "Invalid password hash")
     @Column(name = "password_hash", nullable = false, length = 128)
     private String passwordHash;
     @NotEmpty(message = "Name cannot be empty")
@@ -52,4 +52,8 @@ public class Administrator {
     @Size(min = 2, max = 128, message = "Address must have between 2 and 128 characters")
     @Column(name = "address", nullable = true, length = 128)
     private String address;
+
+    public Administrator(Long id){
+        this.id = id;
+    }
 }

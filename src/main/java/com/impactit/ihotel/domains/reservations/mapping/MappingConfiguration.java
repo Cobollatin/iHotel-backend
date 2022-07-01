@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.Mapping;
 @Configuration("ReservationMappingConfiguration")
 public class MappingConfiguration {
     @Bean
-
-    public ReservationMapper reservationMapper(){return new ReservationMapper();}
+    public ReservationMapper reservationMapper(){
+        return new ReservationMapper();
+    }
 }

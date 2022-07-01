@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String  id;
+    private Long  id;
     @NotEmpty(message = "Number cannot be empty")
     @Size(min = 2, max = 64, message = "Number must be between 2 and 64 characters")
     @Column(name = "number", nullable = false, length = 64)
